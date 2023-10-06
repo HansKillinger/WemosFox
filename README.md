@@ -1,2 +1,2 @@
-# ArduFoxGPS
-Use an Arduino to beep out a morse code message including GPS position
+# WemosFox
+Use a Wemos D1 Mini to beep out a morse code message.
