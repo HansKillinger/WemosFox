@@ -1,9 +1,9 @@
 
-char stringCallSign[] = "XXXXX fox ";//replace 'XXXXX' with your call sign
+char stringCallSign[] = "KD9YQK fox ";//replace 'XXXXX' with your call sign
 char stringGPSinvalid[] = "GPS invalid ";
 
 // Pin variables
-int audioPin = 2;    // output audio on pin 2
+int audioPin = 14;    // output audio on pin 2
 int note = 800;      // audio tone frequency (Hz)
 int keyline = 0;     // control keyline on pin 0
 
@@ -66,10 +66,18 @@ void loop()
 }
 
 
+//void tone(uint8_t _pin, unsigned int frequency, unsigned long duration) 
+//{
+//  pinMode (_pin, OUTPUT );
+//  analogWriteFreq(frequency);
+//  analogWrite(_pin,500);
+//  delay(duration);
+//  analogWrite(_pin,0);
+//}
+
 // DOT
 void MorseDot()
 {
-  digitalWrite(ledPin, HIGH);  	// turn the LED on 
   tone(audioPin, note, dotLen);	// start playing a tone
   delay(dotLen);             	// hold in this position
 }
@@ -77,7 +85,6 @@ void MorseDot()
 // DASH
 void MorseDash()
 {
-  digitalWrite(ledPin, HIGH);  	// turn the LED on 
   tone(audioPin, note, dashLen);	// start playing a tone
   delay(dashLen);               // hold in this position
 }
@@ -85,7 +92,6 @@ void MorseDash()
 // Turn Off
 void MorseSpace(int delayTime)
 {
-  digitalWrite(ledPin, LOW);    	// turn the LED off  	
   noTone(audioPin);	       	   	// stop playing a tone
   delay(delayTime);            	// hold in this position
 }
@@ -438,77 +444,5 @@ void TX_Morse(char tmpChar)
 	  default: 
 		MorseSpace(Spaces);			
 	}
-}
-
-int Char2Int(char in){
-  switch (in){
-    case '0':
-      return 0;
-      break;
-    case '1':
-      return 1;
-      break;
-    case '2':
-      return 2;
-      break;
-    case '3':
-      return 3;
-      break;
-    case '4':
-      return 4;
-      break;
-    case '5':
-      return 5;
-      break;
-    case '6':
-      return 6;
-      break;
-    case '7':
-      return 7;
-      break;
-    case '8':
-      return 8;
-      break;
-    case '9':
-      return 9;
-      break;
-    case 'a':
-      return 10;
-      break;
-    case 'b':
-      return 11;
-      break;
-    case 'c':
-      return 12;
-      break;
-    case 'd':
-      return 13;
-      break;
-    case 'e':
-      return 14;
-      break;
-    case 'f':
-      return 15;
-      break;
-
-    case 'A':
-      return 10;
-      break;
-    case 'B':
-      return 11;
-      break;
-    case 'C':
-      return 12;
-      break;
-    case 'D':
-      return 13;
-      break;
-    case 'E':
-      return 14;
-      break;
-    case 'F':
-      return 15;
-      break;
-  }
 }
 
